@@ -38,7 +38,7 @@ const Orders = () => {
   const showOrdersLength = () => {
     if (orders.length > 0) {
       return (
-        <h1 className='text-danger display-2'>Total orders: {orders.length}</h1>
+        <h1 style={{fontSize:"50px",color:"#ff9900",fontWeight:"600",marginTop:"5%"}} className=' display-2'>Total orders: {orders.length}</h1>
       );
     } else {
       return <h1 className='text-danger'>No orders</h1>;
@@ -67,12 +67,12 @@ const Orders = () => {
 
   const showStatus = (o) => (
     <div className='form-group'>
-      <h3 className='mark mb-4'>Status: {o.status}</h3>
+      <h3 style={{color:"#ff9900"}} className='mark mb-4'>Status: {o.status}</h3>
       <select
         className='form-control'
         onChange={(e) => handleStatusChange(e, o._id)}
       >
-        <option>Update Status</option>
+        <option >Update Status</option>
         {statusValues.map((status, index) => (
           <option key={index} value={status}>
             {status}
@@ -99,25 +99,25 @@ const Orders = () => {
                 style={{ borderBottom: '5px solid indigo' }}
               >
                 <h2 className='mb-5'>
-                  <span className='bg-primary'>Order ID: {o._id}</span>
+                  <span style={{color:"#ff9900",backgroundColor:"black"}} >Order ID: {o._id}</span>
                 </h2>
 
                 <ul className='list-group mb-2'>
-                  <li className='list-group-item'>{showStatus(o)}</li>
-                  <li className='list-group-item'>
+                  <li style={{color:"#23a6d5"}} className='list-group-item'>{showStatus(o)}</li>
+                  <li style={{color:"#23a6d5"}} className='list-group-item'>
                     Transaction ID: {o.transaction_id}
                   </li>
-                  <li className='list-group-item'>Amount: ${o.amount}</li>
-                  <li className='list-group-item'>Ordered by: {o.user.name}</li>
-                  <li className='list-group-item'>
+                  <li style={{color:"#23a6d5"}} className='list-group-item'>Amount: ${o.amount}</li>
+                  <li style={{color:"#23a6d5"}} className='list-group-item'>Ordered by: {o.user.name}</li>
+                  <li style={{color:"#23a6d5"}} className='list-group-item'>
                     Ordered on: {moment(o.createdAt).fromNow()}
                   </li>
-                  <li className='list-group-item'>
+                  <li style={{color:"#23a6d5"}} className='list-group-item'>
                     Delivery address: {o.address}
                   </li>
                 </ul>
 
-                <h3 className='mt-4 mb-4 font-italic'>
+                <h3 style={{color:"#ff9900"}} className='mt-4 mb-4 font-italic'>
                   Total products in the order: {o.products.length}
                 </h3>
 
@@ -125,7 +125,7 @@ const Orders = () => {
                   <div
                     className='mb-4'
                     key={pIndex}
-                    style={{ padding: '20px', border: '1px solid indigo' }}
+                    style={{ padding: '20px' }}
                   >
                     {showInput('Product name', p.name)}
                     {showInput('Product price', p.price)}
